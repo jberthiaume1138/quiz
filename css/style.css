@@ -1,0 +1,28 @@
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+header h1 {
+	font-size: 4em;
+}
+
+#main {
+	border: 1px solid blue;
+}
+
+#main h2 {
+	text-align: center;
+}
+
+#choices {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#choices li {
+
+}
+
+#btn-next {
+	background-color: red;
+}
