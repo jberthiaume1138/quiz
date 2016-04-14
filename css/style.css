@@ -2,25 +2,38 @@
   box-sizing: border-box;
 }
 
+body {
+	font-family: 'Marvel', sans-serif;
+}
 header h1 {
 	font-size: 4em;
+	font-weight: 700;
 }
 
 #main {
+	width: 42em;
 	border: 1px solid blue;
 }
 
 #main h2 {
 	text-align: center;
+	width: 100%;
+	border: 1px solid yellow;
+}
+
+#question {
+	border: 1px solid orange;
 }
 
 #choices {
+	width: 50%;
 	display: flex;
 	flex-wrap: wrap;
 }
 
 #choices li {
-
+	list-style: none;
+	border: 1px solid green;
 }
 
 #btn-next {
