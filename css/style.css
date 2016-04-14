@@ -4,10 +4,14 @@
 
 body {
 	font-family: 'Marvel', sans-serif;
+	max-width: 1200px;
 }
+
 header h1 {
 	font-size: 4em;
 	font-weight: 700;
+	background-color: red;
+	color: white;
 }
 
 #main {
@@ -26,16 +30,36 @@ header h1 {
 }
 
 #choices {
-	width: 50%;
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: space-around;
+	align-content: flex-start;
+	margin: 0;
+	padding: 0;
 }
 
 #choices li {
+	/*width: 50%;*/
+	flex: 1 1 0;
 	list-style: none;
-	border: 1px solid green;
+	border: 1px solid black;
+	margin: 0.75em;
+}
+
+#wrapper {
+	border: 1px solid black;
+}
+
+#main div {
+	border: 1px solid red;
+	width: 50%;
+    height: 50%;
+    float: left;
+    padding: 10px;
+    margin-right: 2px;
 }
 
 #btn-next {
 	background-color: red;
+	color: white;
 }
