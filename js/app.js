@@ -3,7 +3,7 @@
 var questionLocation = 0;
 var correctAnswers;
 
-var question = [{
+var questions = [{
 		number: '1',
 		question: 'In the special 3rd Annual issue of this comic book series, these two major characters were married in a huge ceremony attended by much of the rest of the comic book world.',
 		choices: ['Clark Kent and Lois Lane','Sue Storm and Reed Richards','Aquaman and SpongeBob SquarePants','Cyclops and Jean Grey' ],
@@ -47,11 +47,13 @@ function submitAnswer(answer) {
 	// accepts answer choice, evaluates it
 	console.log(questions[questionLocation].answer);
 	if (answer == questions[questionLocation].answer) {
+		console.log('correct');
 		correctAnswers++;
-		correct();
+		//correct();
 	}
 	else {
-		wrong();
+		console.log('wrong');
+		// wrong();
 	}
 
 };
