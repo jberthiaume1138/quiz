@@ -1,7 +1,7 @@
 'use strict'
 
 var questionLocation = 0;
-var correctAnswers;
+var correctAnswers = 0;
 
 var questions = [{
 		number: '1',
@@ -47,8 +47,9 @@ document.getElementById('btn-restart').addEventListener('click',function(event) 
 
 document.getElementById('btn-next').addEventListener('click',function(event) {
 	// handler to ... submit the answer to the current question
-	// get the answer, then pass it into th evaluator
-	var answer = 1;
+	
+	// get the answer, then pass it into the evaluator
+	var answer = 2;
 	submitAnswer(answer);
 });	
 
@@ -56,12 +57,7 @@ document.getElementById('btn-next').addEventListener('click',function(event) {
 
 
 function restartGame(){
-	document.getElementById('question-header').innerHTML = 'Question 1 of 5';
-
-};
-
-function setQuestion() {
-	// moves the game to the current question
+	document.getElementById('question-header').innerHTML = 'Question #1';
 };
 
 function submitAnswer(answer) {
@@ -69,12 +65,28 @@ function submitAnswer(answer) {
 	console.log(questions[questionLocation].answer);
 	if (answer == questions[questionLocation].answer) {
 		console.log('correct');
+		console.log(questionLocation);
 		correctAnswers++;
-		//correct();
+		var score = '<p id="score"> Score: ' + correctAnswers + ' out of ' + questionLocation + '</p>';
+		document.getElementById('question-header-wrapper').innerHTML += score;
 	}
+
 	else {
 		console.log('wrong');
 		// wrong();
 	}
+
+};
+
+function correct() {
+	document.getElementById('question-header').innerHTML = 'Question' ;
+
+};
+
+function explanation() {
+
+};
+
+function endGame() {
 
 };
