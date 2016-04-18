@@ -64,9 +64,22 @@ header h1 {
 	vertical-align: middle;
 }
 
+#choice-wrapper {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+}
+
+#choice-wrapper input {
+	/*display: inline-block;*/
+}
+
+
+
 #score {
 	color: gray;
-	display: inline;
+	display: inline-block;
+	float: right;
 	padding: 0;
 	margin: 0;
 }
