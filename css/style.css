@@ -85,10 +85,34 @@ header h1 {
 }
 
 #game-over {
+	max-width: 50em;
 	display: none;
 	margin: 0 auto;
 	background-color: white;
+	flex-flow: column;
+	align-items: center;
+	padding: 1em;
+} 
+
+#game-over h2 {
+	text-align: center;
+	font-size: 5em;
+	text-transform: uppercase;
+	padding: 0;
+	margin: 0;
 }
+
+#game-over h3 {
+	font-size: 2em;
+	margin: 1em;
+	text-align: center;
+}
+
+#game-over img {
+	margin: 1em;
+}
+
+
 
 /* -------------------------------- */
 footer {

@@ -14,6 +14,10 @@ function restartGame() {
 	questionIndex = 0;
 	correctAnswers = 0;
 
+	document.getElementById('main').style.display = 'block';
+	document.getElementById('footer').style.display = 'block';
+	document.getElementById('game-over').style.display = 'none';
+
 	populateQuestion();
 //	console.log(questions[questionIndex].answer);
 };
@@ -77,13 +81,10 @@ function wrongAnswer () {
 	console.log('wrong!');
 };
 
-document.getElementById('play-again').addEventListener('click',function(event) {
-	restartGame();
-});
-
 function gameOver() {
 	console.log(correctAnswers);
 	document.getElementById('main').style.display = 'none';
+	document.getElementById('footer').style.display = 'none';
 	
 	var gameOverSplash = document.getElementById('game-over');
 		
@@ -102,6 +103,16 @@ function gameOver() {
 		gameOverSplash.innerHTML += '<h2>Sad face.</h2><h3>Stop wasting time taking internet quizes and go to the comic book store before the Hulk sits on your head.</h3>';
 	}
 
-	gameOverSplash.style.display = 'block';
+	gameOverSplash.innerHTML += '<img src="images/stanlee.jpg">';
+
+	gameOverSplash.innerHTML += '<button id="play-again">Play Again</button>';
+
+	gameOverSplash.style.display = 'flex';
+
+	document.getElementById('play-again').addEventListener('click',function(event) {
+		restartGame();
+	});
 
 };
+
+
