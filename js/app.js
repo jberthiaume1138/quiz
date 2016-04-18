@@ -44,44 +44,43 @@ function populateQuestion () {
 
 function evaluateAnswer(choice) {		// evaluate the choice agsinst the quiz answer
 	if (choice == questions[questionIndex].answer) {
-		console.log('Question ' + questionIndex + ' correct!');
-		console.log(questions[questionIndex].choices[choice]);
+		// the answer is correct
+
+		console.log('Question ' + questionIndex + ' correct ' + questions[questionIndex].choices[choice]);
 		
 		correctAnswers++; // increment the total number of correct answers
+		
 		console.log(correctAnswers);
 
-		// var score = '<p id="score"> Score: ' + correctAnswers + ' out of ' + questionIndex + '</p>';
-		// document.getElementById('question-header-wrapper').innerHTML += score;
 
-		// correct();
+		//do some stuff
+
+		var score = '<p id="score">Score: ' + correctAnswers + ' out of ' + questionIndex + 'correct</p>';
+		document.getElementById('question-header-wrapper').innerHTML += score;
+
+		// change a bunch of output to show correct choice
+		var output = '<h2>Correct!</h2><p>' + questions[questionIndex].explanation + '</p>';
+
+		document.getElementById('explanation').innerHTML += output;
+		//document.getElementById('explanation');
+
+		document.getElementById('main').style.display = 'none';
+		document.getElementById('explanation').style.display = 'block';
 	}
 	else {
-		wrongAnswer();
+		// the answer is wrong
+		console.log('wrong');
+		//do some stuff
 	}
 
-	if (questionIndex + 1 == questions.length) {
+	// check location in question array, game over if that was the last question
+	if ((questionIndex + 1) == questions.length) {
 		gameOver();
 	}
-	else {
+	else {		// otherwise, increment the counter and populate the HTML with the next question
 		questionIndex++;
 		populateQuestion();
 	}
-};
-
-function correct() {
-	// change a bunch of output to show correct choice
-	var output = '<h2>Correct!</h2><p>' + questions[questionIndex].explanation + '</p>';
-
-	document.getElementById('explanation').innerHTML += output;
-	//document.getElementById('explanation');
-
-	document.getElementById('main').style.display = 'none';
-	document.getElementById('explanation').style.display = 'block';
-};
-
-function wrongAnswer () {
-	// generate a bunch of output to show wrong choice
-	console.log('wrong!');
 };
 
 function gameOver() {
