@@ -84,6 +84,11 @@ header h1 {
 	margin: 0;
 }
 
+#game-over {
+	display: none;
+	margin: 0 auto;
+	background-color: white;
+}
 
 /* -------------------------------- */
 footer {
