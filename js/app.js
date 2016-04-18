@@ -48,9 +48,16 @@ function populateQuestion () {
 	//then load the choices from the array of objects in the file for that question
 	var listOfLabels = document.getElementsByClassName('choice-labels');
 	for (var i = 0; i < listOfLabels.length; i++) {
-		listOfLabels.item(i).innerHTML = questions[questionIndex].choices[i];
+		listOfLabels.item(i).innerHTML += questions[questionIndex].choices[i];
 	}
 	document.getElementById('question-header').innerHTML = 'Question #' + (questionIndex + 1);
+
+	// clear the radio button --- fix this up later
+	// document.getElementById('0').checked = false;
+	// document.getElementById('1').checked = false;
+	// document.getElementById('2').checked = false;
+	// document.getElementById('3').checked = false;
+
 }
 
 function evaluateAnswer(choice) {		// evaluate the choice agsinst the quiz answer
@@ -100,7 +107,8 @@ function gameOver() {
 	// document.getElementById('footer').style.display = 'none';
 	
 	var gameOverSplash = document.getElementById('game-over');
-		
+	gameOverSplash.innerHTML = ''; // clear
+
 	var output = 'You got ' + correctAnswers + ' out of ' + questions.length + ' correct';
 
 	if (correctAnswers == questions.length) {
