@@ -3,8 +3,6 @@
 var questionIndex = 0;
 var correctAnswers = 0;
 
-
-
 document.onload = restartGame();
 
 document.getElementById('btn-restart').addEventListener('click',function(event) {
@@ -13,11 +11,11 @@ document.getElementById('btn-restart').addEventListener('click',function(event) 
 
 function restartGame() {
 	// set question position
-	// 0 out running total variables
+	// zero out running total variables
 	// load first question
 	
 	populateQuestion();
-	console.log(questions[questionIndex].answer);
+//	console.log(questions[questionIndex].answer);
 };
 
 document.getElementById('btn-next').addEventListener('click',function(event) {
@@ -27,7 +25,20 @@ document.getElementById('btn-next').addEventListener('click',function(event) {
 });	
 
 function populateQuestion () {
-	document.getElementById('1').innerHTML = questions[questionIndex].choices['0'];
+	var content = questions[questionIndex].choices['0'];
+	console.log (content);
+
+	// document.getElementById('lbl-0').innerHTML = questions[questionIndex].choices['0'];
+
+	var listOfLabels = document.getElementsByClassName('choice-labels');
+	for (var i = 0; i < listOfLabels.length; i++) {
+		listOfLabels.item(i).innerHTML = questions[questionIndex].choices[i];
+		console.log (questions[questionIndex].choices[i]);
+		console.log (listOfLabels.item(i).innerHTML);
+	}
+
+
+	// document.getElementById('1').innerHTML = content;
 }
 
 function submitAnswer(choice) {		// evaluate the choice agsinst the quiz answer
