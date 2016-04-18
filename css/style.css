@@ -134,20 +134,38 @@ header h1 {
 
 
 /* -------------------------------- */
-footer {
+/*footer {
 	width: 50em;
 	margin: 0 auto;
+	padding: 1em;
 	background-color: white;
 	align-items: center;
+}*/
+
+#nav-wrapper {
+	padding: 1em;
+	text-align: center;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: center;
 }
 
 #btn-next {
-	background-color: red;
-	color: white;
+	width: 7em;
+	margin-bottom: 2em;
 }
 
 #btn-restart {
 	background-color: red;
 	color: white;
+}
+
+#btn-confirm {
+	display: none;
+}
+
+#restart-warning {
+	display: none;
 }
 

@@ -12,8 +12,19 @@ var correctAnswers;
 document.onload = restartGame();
 
 document.getElementById('btn-restart').addEventListener('click',function(event) {
-	restartGame();
+	document.getElementById('btn-next').style.display = 'none';
+	document.getElementById('btn-confirm').style.display = 'block';
+	document.getElementById('btn-restart').style.display = 'none';
+	document.getElementById('restart-warning').style.display = 'block';
 });
+
+document.getElementById('btn-confirm').addEventListener('click',function(event) {
+	document.getElementById('btn-next').style.display = 'block';
+	document.getElementById('btn-confirm').style.display = 'none';
+	document.getElementById('btn-restart').style.display = 'block';
+	document.getElementById('restart-warning').style.display = 'none';
+	restartGame();
+})
 
 function restartGame() {
 	// resets running totals, moves to first question, populates fields
@@ -21,7 +32,7 @@ function restartGame() {
 	correctAnswers = 0;
 
 	document.getElementById('main').style.display = 'block';
-	document.getElementById('footer').style.display = 'block';
+	// document.getElementById('footer').style.display = 'block';
 	document.getElementById('game-over').style.display = 'none';
 
 	populateQuestion();
@@ -87,7 +98,7 @@ function evaluateAnswer(choice) {		// evaluate the choice agsinst the quiz answe
 function gameOver() {
 	console.log(correctAnswers);
 	document.getElementById('main').style.display = 'none';
-	document.getElementById('footer').style.display = 'none';
+	// document.getElementById('footer').style.display = 'none';
 	
 	var gameOverSplash = document.getElementById('game-over');
 		
