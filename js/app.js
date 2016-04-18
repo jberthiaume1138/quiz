@@ -1,7 +1,7 @@
 'use strict'
 
 // TODO:
-// question explanations
+// question explanations ... possibly some kind of modal overlay box
 // running total of score + positioning
 // all the CSS
 // need an are you sure? box for start over
@@ -56,7 +56,7 @@ function evaluateAnswer(choice) {		// evaluate the choice agsinst the quiz answe
 
 		//do some stuff
 
-		// var score = '<p id="score">Score: ' + correctAnswers + ' out of ' + questionIndex + 'correct</p>';
+		// var score = '<p id="score">Score: ' + correctAnswers + ' out of ' + (questionIndex + 1) + ' correct</p>';
 		// document.getElementById('question-header-wrapper').innerHTML += score;
 
 		// // change a bunch of output to show correct choice

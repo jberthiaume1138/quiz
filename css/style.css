@@ -47,9 +47,14 @@ header h1 {
 	border: 2px solid black;
 	font-size: 1.25em;
 	font-weight: 700;
+	/*margin-bottom: 1em;*/
 }
 
-#choices {
+#question-header-wrapper {
+
+}
+
+/*#choices {
 	padding: 0;
 	display: flex;
 	flex-flow: column;
@@ -62,24 +67,35 @@ header h1 {
 	padding: 0.75em;
 	margin: 0.3em 1em;
 	vertical-align: middle;
-}
+}*/
 
-#choice-wrapper {
+#choices-wrapper {
 	display: flex;
-	flex-flow: column;
+	flex-flow: row wrap;
 	align-items: center;
+	flex: 1 1 auto;
+	justify-content: center;
+	padding: 1em;
 }
 
-#choice-wrapper input {
-	/*display: inline-block;*/
-}
+/*#choices-wrapper input {
+	margin: 0 auto;
+}*/
 
+.choice {
+	max-width: 50%;
+	width: 20em;
+	height: 3em;
+	border: 2px solid black;
+	margin: 1em;
+	padding: 0.5em;
+}
 
 
 #score {
 	color: gray;
 	display: inline-block;
-	float: right;
+	text-align: right;
 	padding: 0;
 	margin: 0;
 }
