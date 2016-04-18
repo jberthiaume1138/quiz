@@ -112,6 +112,9 @@ header h1 {
 	margin: 1em;
 }
 
+#game-over button {
+	width: 6em;
+}
 
 
 /* -------------------------------- */
