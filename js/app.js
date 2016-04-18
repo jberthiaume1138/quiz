@@ -4,7 +4,6 @@
 // question explanations ... possibly some kind of modal overlay box
 // running total of score + positioning
 // all the CSS
-// need an are you sure? box for start over
 
 var questionIndex;
 var correctAnswers;
