@@ -48,16 +48,21 @@ function populateQuestion () {
 	//then load the choices from the array of objects in the file for that question
 	var listOfLabels = document.getElementsByClassName('choice-labels');
 	for (var i = 0; i < listOfLabels.length; i++) {
-		listOfLabels.item(i).innerHTML += questions[questionIndex].choices[i];
+		// listOfLabels.item(i).innerHTML = '';
+		listOfLabels.item(i).innerHTML = questions[questionIndex].choices[i];
 	}
 	document.getElementById('question-header').innerHTML = 'Question #' + (questionIndex + 1);
 
 	// clear the radio button --- fix this up later
+	// var radios = document.getElementsByClassName('');
+	// for (var i = 0; i < listOfLabels.length; i++) {
+	// 	document.getElementById('i').checked = false;	
+	// } 
+
 	// document.getElementById('0').checked = false;
 	// document.getElementById('1').checked = false;
 	// document.getElementById('2').checked = false;
 	// document.getElementById('3').checked = false;
-
 }
 
 function evaluateAnswer(choice) {		// evaluate the choice agsinst the quiz answer

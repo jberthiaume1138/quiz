@@ -4,8 +4,13 @@
 
 body {
 	font-family: 'Marvel', sans-serif;
-	max-width: 1000px;
+	/*max-width: 1000px;*/
 	background-color: black;
+}
+
+header {
+	max-width: 50em;
+	margin: 0 auto;
 }
 
 header h1 {
@@ -89,6 +94,14 @@ header h1 {
 	border: 2px solid black;
 	margin: 1em;
 	padding: 0.5em;
+}
+
+.choice-labels {
+	cursor: pointer;
+}
+
+.choice input {
+	visibility: hidden;
 }
 
 
