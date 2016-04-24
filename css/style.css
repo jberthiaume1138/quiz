@@ -104,6 +104,20 @@ header h1 {
 	visibility: hidden;
 }
 
+.choice:hover {
+	background-color: #CCCCCC;
+}
+
+.choice:active {
+	background-color: #CCCCCC;
+}
+
+.choice-selected {
+	background-color: blue;
+}
+
+
+
 
 #score {
 	color: gray;
@@ -144,6 +158,8 @@ header h1 {
 #game-over button {
 	width: 6em;
 }
+
+
 
 
 /* -------------------------------- */

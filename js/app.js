@@ -4,54 +4,34 @@
 // question explanations ... possibly some kind of modal overlay box
 // running total of score + positioning
 // all the CSS
+var Quiz = {
 
-var questionIndex;
-var correctAnswers;
 
-document.onload = restartGame();
+questionIndex: '',
+correctAnswers: '',
 
-document.getElementById('btn-restart').addEventListener('click',function(event) {
-	document.getElementById('btn-next').style.display = 'none';
-	document.getElementById('btn-confirm').style.display = 'block';
-	document.getElementById('btn-restart').style.display = 'none';
-	document.getElementById('restart-warning').style.display = 'block';
-});
-
-document.getElementById('btn-confirm').addEventListener('click',function(event) {
-	document.getElementById('btn-next').style.display = 'block';
-	document.getElementById('btn-confirm').style.display = 'none';
-	document.getElementById('btn-restart').style.display = 'block';
-	document.getElementById('restart-warning').style.display = 'none';
-	restartGame();
-})
-
-function restartGame() {
+restartGame: function() {
 	// resets running totals, moves to first question, populates fields
-	questionIndex = 0;
-	correctAnswers = 0;
+	Quiz.questionIndex = 0;
+	Quiz.correctAnswers = 0;
 
 	document.getElementById('main').style.display = 'block';
 	// document.getElementById('footer').style.display = 'block';
 	document.getElementById('game-over').style.display = 'none';
 
-	populateQuestion();
-};
+	Quiz.populateQuestion();
+},
 
-document.getElementById('btn-next').addEventListener('click',function(event) {
-	// handler to get the selected choice and submit it for evaluation
-	evaluateAnswer(document.querySelector('input[name=choices]:checked').value);
-});	
-
-function populateQuestion () {
+populateQuestion: function() {
 	// first load the question from the array of objects in the file
-	document.getElementById('question').innerHTML = questions[questionIndex].question;
+	document.getElementById('question').innerHTML = questions[Quiz.questionIndex].question;
 	//then load the choices from the array of objects in the file for that question
 	var listOfLabels = document.getElementsByClassName('choice-labels');
 	for (var i = 0; i < listOfLabels.length; i++) {
 		// listOfLabels.item(i).innerHTML = '';
-		listOfLabels.item(i).innerHTML = questions[questionIndex].choices[i];
+		listOfLabels.item(i).innerHTML = questions[Quiz.questionIndex].choices[i];
 	}
-	document.getElementById('question-header').innerHTML = 'Question #' + (questionIndex + 1);
+	document.getElementById('question-header').innerHTML = 'Question #' + (Quiz.questionIndex + 1);
 
 	// clear the radio button --- fix this up later
 	// var radios = document.getElementsByClassName('');
@@ -63,26 +43,27 @@ function populateQuestion () {
 	// document.getElementById('1').checked = false;
 	// document.getElementById('2').checked = false;
 	// document.getElementById('3').checked = false;
-}
+},
 
-function evaluateAnswer(choice) {		// evaluate the choice agsinst the quiz answer
-	if (choice == questions[questionIndex].answer) {
+
+evaluateAnswer: function(choice) {		// evaluate the choice agsinst the quiz answer
+	if (choice == questions[Quiz.questionIndex].answer) {
 		// the answer is correct
 
-		console.log('Question ' + questionIndex + ' correct ' + questions[questionIndex].choices[choice]);
+		console.log('Question ' + Quiz.questionIndex + ' correct ' + questions[Quiz.questionIndex].choices[choice]);
 		
 		correctAnswers++; // increment the total number of correct answers
 		
-		console.log(correctAnswers);
+		console.log(Quiz.correctAnswers);
 
 
 		//do some stuff
 
-		// var score = '<p id="score">Score: ' + correctAnswers + ' out of ' + (questionIndex + 1) + ' correct</p>';
+		// var score = '<p id="score">Score: ' + correctAnswers + ' out of ' + (Quiz.questionIndex + 1) + ' correct</p>';
 		// document.getElementById('question-header-wrapper').innerHTML += score;
 
 		// // change a bunch of output to show correct choice
-		// var output = '<h2>Correct!</h2><p>' + questions[questionIndex].explanation + '</p>';
+		// var output = '<h2>Correct!</h2><p>' + questions[Quiz.questionIndex].explanation + '</p>';
 
 		// document.getElementById('explanation').innerHTML += output;
 		// //document.getElementById('explanation');
@@ -97,16 +78,16 @@ function evaluateAnswer(choice) {		// evaluate the choice agsinst the quiz answe
 	}
 
 	// check location in question array, game over if that was the last question
-	if ((questionIndex + 1) == questions.length) {
-		gameOver();
+	if ((Quiz.questionIndex + 1) == questions.length) {
+		Quiz.gameOver();
 	}
 	else {		// otherwise, increment the counter and populate the HTML with the next question
-		questionIndex++;
-		populateQuestion();
+		Quiz.questionIndex++;
+		Quiz.populateQuestion();
 	}
-};
+},
 
-function gameOver() {
+gameOver: function() {
 	console.log(correctAnswers);
 	document.getElementById('main').style.display = 'none';
 	// document.getElementById('footer').style.display = 'none';
@@ -138,7 +119,36 @@ function gameOver() {
 	document.getElementById('play-again').addEventListener('click',function(event) {
 		restartGame();
 	});
-
+}
 };
 
 
+
+document.onload = Quiz.restartGame();
+
+document.getElementById('btn-restart').addEventListener('click',function(event) {
+	document.getElementById('btn-next').style.display = 'none';
+	document.getElementById('btn-confirm').style.display = 'block';
+	document.getElementById('btn-restart').style.display = 'none';
+	document.getElementById('restart-warning').style.display = 'block';
+});
+
+document.getElementById('btn-confirm').addEventListener('click',function(event) {
+	document.getElementById('btn-next').style.display = 'block';
+	document.getElementById('btn-confirm').style.display = 'none';
+	document.getElementById('btn-restart').style.display = 'block';
+	document.getElementById('restart-warning').style.display = 'none';
+	Quiz.restartGame();
+});
+
+document.getElementById('choice-0').addEventListener('click',function(event) {
+	this.classList.add('choice-selected');
+	document.getElementById('0').checked = true;
+});
+
+
+
+document.getElementById('btn-next').addEventListener('click',function(event) {
+	// handler to get the selected choice and submit it for evaluation
+	Quiz.evaluateAnswer(document.querySelector('input[name=choices]:checked').value);
+});	
