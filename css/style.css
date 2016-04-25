@@ -117,6 +117,7 @@ header h1 {
 	background-color: white;
 	flex-flow: column;
 	align-items: center;
+	justify-content: flex-start;
 	padding: 1em;
 } 
 

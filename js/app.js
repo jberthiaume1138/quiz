@@ -14,9 +14,8 @@ var Quiz = {
 		Quiz.questionIndex = 0;
 		Quiz.correctAnswers = 0;
 
-		document.getElementById('main').style.display = 'block';
-		// document.getElementById('footer').style.display = 'block';
-		document.getElementById('game-over').style.display = 'none';
+		document.getElementById('main').style.display = 'flex';
+		document.getElementById('game-over').style.display = 'flex';
 
 		Quiz.populateQuestion();
 	},
