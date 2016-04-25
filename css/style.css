@@ -29,7 +29,7 @@ header h1 {
 #main {
 	max-width: 50em;
 	margin: 0 auto;
-	padding: 0;
+	padding: 1em;
 	border: 0;
 	background-color: white;
 	display: flex;
@@ -48,19 +48,21 @@ header h1 {
 }
 
 #question {
-	text-align: center;
+	width: 100%;
 	margin: 0 1em;
 	padding: 1em;
 	border: 2px solid black;
 	font-size: 1.25em;
 	font-weight: 700;
+	text-align: center;
 }
 
 #choices {
+	width: 100%;
 	display: flex;
 	flex-flow: row wrap;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-around;
 	padding: 1em;
 }
 
@@ -71,15 +73,20 @@ header h1 {
 }
 
 .choice {
-	max-width: 50%;
 	flex: 1 1 auto;
-	/*width: 20em;*/
 	/*height: 4em;*/
 	border: 2px solid black;
 	margin: 1em;
 	padding: 0.5em;
 	cursor: pointer;
 }
+
+@media only screen and (max-width: 515px) {
+ 	.choice  {
+		width: 100%;
+	}
+}
+
 
 .choice input {
 	display: none;
