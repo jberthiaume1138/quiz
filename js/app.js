@@ -1,14 +1,15 @@
-'use strict'
-
 // TODO:
 // required answer or next is disabled
 // question explanations ... some kind of modal overlay box
 // running total of score + positioning
-// responsiveness
 
-var Quiz = {
+(function () {
 
-	questionIndex: '',
+'use strict'
+
+var Quiz = {	//capital letter?
+
+	questionIndex: '',		// is this the best way to create an empty object property?
 	correctAnswers: '',
 
 	restartGame: function() {
@@ -86,15 +87,14 @@ var Quiz = {
 	gameOver: function() {
 		console.log(Quiz.correctAnswers);
 		document.getElementById('main').style.display = 'none';
-		// document.getElementById('footer').style.display = 'none';
-		
+				
 		var gameOverSplash = document.getElementById('game-over');
 		gameOverSplash.innerHTML = ''; // clear
 
 		var output = 'You got ' + Quiz.correctAnswers + ' out of ' + questions.length + ' correct';
 
 		if (Quiz.correctAnswers == questions.length) {
-			gameOverSplash.innerHTML += '<h2>Excelsior!</h2><h3>You are a champion! Worthy of joining the X-men, the Avengers or the Justice League.Just remember, with great power, comes great responsibility.';
+			gameOverSplash.innerHTML += '<h2>Excelsior!</h2><h3>You are a champion! Worthy of joining the X-men, the Avengers or the Justice League. Just remember, with great power, comes great responsibility.';
 			gameOverSplash.innerHTML += '<img src="images/stanlee.jpg">';
 		}
 		else if ((Quiz.correctAnswers >= 3) && (Quiz.correctAnswers <= 5)) {
@@ -117,8 +117,6 @@ var Quiz = {
 		});
 	}
 };
-
-
 
 document.onload = Quiz.restartGame();
 
@@ -177,6 +175,7 @@ document.getElementById('choice-3').addEventListener('click',function(event) {
 
 document.getElementById('btn-next').addEventListener('click',function(event) {
 	// handler to get the selected choice and submit it for evaluation
-
 	Quiz.evaluateAnswer(document.querySelector('input[name=choices]:checked').value);
 });	
+
+})();
