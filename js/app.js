@@ -1,9 +1,10 @@
 'use strict'
 
 // TODO:
+// required answer or next is disabled
 // question explanations ... possibly some kind of modal overlay box
 // running total of score + positioning
-// all the CSS
+// responsive
 var Quiz = {
 
 	questionIndex: '',
@@ -15,7 +16,7 @@ var Quiz = {
 		Quiz.correctAnswers = 0;
 
 		document.getElementById('main').style.display = 'flex';
-		document.getElementById('game-over').style.display = 'flex';
+		document.getElementById('game-over').style.display = 'none';
 
 		Quiz.populateQuestion();
 	},
@@ -92,7 +93,7 @@ var Quiz = {
 		var output = 'You got ' + Quiz.correctAnswers + ' out of ' + questions.length + ' correct';
 
 		if (Quiz.correctAnswers == questions.length) {
-			gameOverSplash.innerHTML += '<h2>Excelsior!</h2><br/><h3>You are a champion! Worthy of joining the X-men, the Avengers or the Justice League.<br/>Just remember, with great power, comes great responsibility.';
+			gameOverSplash.innerHTML += '<h2>Excelsior!</h2><h3>You are a champion! Worthy of joining the X-men, the Avengers or the Justice League.Just remember, with great power, comes great responsibility.';
 			gameOverSplash.innerHTML += '<img src="images/stanlee.jpg">';
 		}
 		else if ((Quiz.correctAnswers >= 3) && (Quiz.correctAnswers <= 5)) {

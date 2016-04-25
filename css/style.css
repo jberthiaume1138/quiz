@@ -60,7 +60,7 @@ header h1 {
 	display: flex;
 	flex-flow: row wrap;
 	align-items: center;
-	flex: 1 1 auto;
+	flex: 1 0 auto;
 	justify-content: center;
 	padding: 1em;
 }
@@ -102,19 +102,23 @@ header h1 {
 
 
 
-#score {
+/*#score {
 	color: gray;
 	display: inline-block;
 	text-align: right;
 	padding: 0;
 	margin: 0;
 }
+*/
+
+
+
 
 #game-over {
 	max-width: 50em;
-	display: none;
 	margin: 0 auto;
 	background-color: white;
+	display: flex;
 	flex-flow: column;
 	align-items: center;
 	justify-content: flex-start;
@@ -136,7 +140,14 @@ header h1 {
 }
 
 #game-over img {
-	margin: 1em;
+	margin: 1em auto;
+	/*width: 350px;*/
+}
+
+@media only screen and (max-width: 515px) {
+ 	#game-over img {
+		width: 350px;
+	}
 }
 
 #game-over button {
