@@ -183,9 +183,22 @@ header h1 {
 #btn-restart {
 	background-color: red;
 	color: white;
+	text-shadow: none;
+	border: none;
+	width: 5em;
+	height: 1.5em;
 }
 
 #btn-confirm {
+	display: none;
+	background-color: red;
+	color: white;
+	text-shadow: none; 
+	border: none;
+	margin: 1em;
+}
+
+#btn-cancel {
 	display: none;
 }
 

@@ -7,10 +7,10 @@
 
 'use strict'
 
-var Quiz = {	//capital letter?
+var Quiz = {	//capital because it's being used as class.
 
 	questionIndex: '',		// is this the best way to create an empty object property?
-	correctAnswers: '',
+	correctAnswers: '',		// set them to zero if they are integers, '' if they strings
 
 	restartGame: function() {
 		// resets running totals, moves to first question, populates fields
@@ -107,6 +107,7 @@ var Quiz = {	//capital letter?
 			gameOverSplash.innerHTML += '<h2>Sad face</h2><h3>Stop wasting time taking internet quizes and go to the comic book store before the Hulk sits on your head.</h3>';
 			gameOverSplash.innerHTML += '<img src="images/hulk.gif">';
 		}
+	
 
 		gameOverSplash.innerHTML += '<button id="play-again">Play Again</button>';
 
@@ -122,8 +123,9 @@ document.onload = Quiz.restartGame();
 
 document.getElementById('btn-restart').addEventListener('click',function(event) {
 	document.getElementById('btn-next').style.display = 'none';
-	document.getElementById('btn-confirm').style.display = 'block';
+	document.getElementById('btn-confirm').style.display = 'inline-block';
 	document.getElementById('btn-restart').style.display = 'none';
+	document.getElementById('btn-cancel').style.display = 'inline-block';
 	document.getElementById('restart-warning').style.display = 'block';
 });
 
@@ -131,10 +133,19 @@ document.getElementById('btn-confirm').addEventListener('click',function(event) 
 	document.getElementById('btn-next').style.display = 'block';
 	document.getElementById('btn-confirm').style.display = 'none';
 	document.getElementById('btn-restart').style.display = 'block';
+	document.getElementById('btn-cancel').style.display = 'none';
 	document.getElementById('restart-warning').style.display = 'none';
 	Quiz.restartGame();
 });
 
+document.getElementById('btn-cancel').addEventListener('click',function(event) {
+	document.getElementById('btn-next').style.display = 'block';
+	document.getElementById('btn-confirm').style.display = 'none';
+	document.getElementById('btn-restart').style.display = 'block';
+	document.getElementById('btn-cancel').style.display = 'none';
+	document.getElementById('restart-warning').style.display = 'none';
+	Quiz.restartGame();
+});
 
 document.getElementById('choice-0').addEventListener('click',function(event) {
 	this.classList.add('choice-selected');
@@ -171,7 +182,6 @@ document.getElementById('choice-3').addEventListener('click',function(event) {
 	
 	document.getElementById('3').checked = true;
 });
-
 
 document.getElementById('btn-next').addEventListener('click',function(event) {
 	// handler to get the selected choice and submit it for evaluation
