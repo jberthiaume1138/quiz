@@ -8,7 +8,7 @@ var questions = [
 	},
 	{	number: '2',
 		question: 'Who is Fido?',
-		choices: ["A term of endearment Cyclops uses for Wolverine","Batman's giant mechanical tyranasaurus","The code name for Captain America's shield","Punisher's pit bull"],
+		choices: ["A term of endearment Cyclops uses for Wolverine","Batman's giant mechanical tyrannosaurus","The code name for Captain America's shield","Punisher's pit bull"],
 		answer: '1',
 		explanation: 'blah blah blah'
 	},

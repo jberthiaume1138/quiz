@@ -90,30 +90,33 @@ header h1 {
 .choice {
 	max-width: 50%;
 	width: 20em;
-	height: 3em;
+	height: 4em;
 	border: 2px solid black;
 	margin: 1em;
 	padding: 0.5em;
-}
-
-.choice-labels {
 	cursor: pointer;
 }
 
 .choice input {
-	visibility: hidden;
+	display: none;
+}
+
+.choice-text {
+	display: block;
+	font-size: 1.25em;
+	margin: 0;
+	border: 0;
+	padding: 0;
+	vertical-align: middle;
+	text-align: center;
 }
 
 .choice:hover {
-	background-color: #CCCCCC;
-}
-
-.choice:active {
-	background-color: #CCCCCC;
+	background-color: #DDDDDD;
 }
 
 .choice-selected {
-	background-color: blue;
+	background-color: #DDDDDD;
 }
 
 
