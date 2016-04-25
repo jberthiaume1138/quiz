@@ -83,10 +83,6 @@ header h1 {
 	padding: 1em;
 }
 
-/*#choices-wrapper input {
-	margin: 0 auto;
-}*/
-
 .choice {
 	max-width: 50%;
 	width: 20em;
@@ -118,8 +114,6 @@ header h1 {
 .choice-selected {
 	background-color: #DDDDDD;
 }
-
-
 
 
 #score {
