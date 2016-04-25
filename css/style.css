@@ -24,6 +24,14 @@ header h1 {
 	padding: 0;
 }
 
+@media only screen and (max-width: 415px) {
+ 	header h1  {
+		font-size: 2em;
+	}
+}
+
+
+
 /* -------------------------------------- */
 
 #main {
@@ -65,12 +73,6 @@ header h1 {
 	justify-content: space-around;
 	padding: 1em;
 }
-
-/*@media only screen and (max-width: 515px) {
- 	#choices  {
-		flex-flow: column;
-	}
-}*/
 
 .choice {
 	flex: 1 1 auto;
