@@ -34,42 +34,11 @@ var Quiz = {
 		document.getElementById('question-header').innerHTML = 'Question #' + (Quiz.questionIndex + 1);
 		
 		// //then load the choices from the array of objects in the file for that question
-		// var listOfLabels = document.getElementsByClassName('choice-labels');
-		// for (var i = 0; i < listOfLabels.length; i++) {
-		// 	// listOfLabels.item(i).innerHTML = '';
-		// 	listOfLabels.item(i).innerHTML = questions[Quiz.questionIndex].choices[i];
-		// }
-		
-		// //then load the choices from the array of objects in the file for that question
-		// var listOfDivs = document.getElementsByClassName('choice');
-		// for (var i = 0; i < listOfDivs.length; i++) {
-		// 	listOfDivs.item(i).innerHTML = '';
-		// 	listOfDivs.item(i).innerHTML += '<input class="radios" type="radio" id="' + Quiz.questionIndex + '" name="choices" value="' + Quiz.questionIndex + '">';
-		// 	listOfDivs.item(i).innerHTML += questions[Quiz.questionIndex].choices[i];
-		// 	console.log (questions[Quiz.questionIndex]);
-		// }
-
 		var listOfParagraphs = document.getElementsByClassName('choice-text');
 		for (var i = 0; i < listOfParagraphs.length; i++) {
 			listOfParagraphs.item(i).innerHTML = '';
 			listOfParagraphs.item(i).innerHTML += questions[Quiz.questionIndex].choices[i];
-			console.log (questions[Quiz.questionIndex]);
 		}
-
-		
-
-		
-
-		// clear the radio button --- fix this up later
-		// var radios = document.getElementsByClassName('');
-		// for (var i = 0; i < listOfLabels.length; i++) {
-		// 	document.getElementById('i').checked = false;	
-		// } 
-
-		// document.getElementById('0').checked = false;
-		// document.getElementById('1').checked = false;
-		// document.getElementById('2').checked = false;
-		// document.getElementById('3').checked = false;
 	},
 
 	evaluateAnswer: function(choice) {		// evaluate the choice against the quiz answer
@@ -121,19 +90,19 @@ var Quiz = {
 		var gameOverSplash = document.getElementById('game-over');
 		gameOverSplash.innerHTML = ''; // clear
 
-		var output = 'You got ' + correctAnswers + ' out of ' + questions.length + ' correct';
+		var output = 'You got ' + Quiz.correctAnswers + ' out of ' + questions.length + ' correct';
 
-		if (correctAnswers == questions.length) {
+		if (Quiz.correctAnswers == questions.length) {
 			gameOverSplash.innerHTML += '<h2>Excelsior!</h2><br/><h3>You are a champion! Worthy of joining the X-men, the Avengers or the Justice League.<br/>Just remember, with great power, comes great responsibility.';
 			gameOverSplash.innerHTML += '<img src="images/stanlee.jpg">';
 		}
-		else if ((correctAnswers >= 3) && (correctAnswers <= 5)) {
+		else if ((Quiz.correctAnswers >= 3) && (Quiz.correctAnswers <= 5)) {
 			gameOverSplash.innerHTML += '<h2>Well done shell-head!</h2><br/><h3>You are clearly an expert worthy of a spot in Charles Xavier\'s School.</h3>';
 		}
-		else if ((correctAnswers >= 1) && (correctAnswers < 3)) {
-			gameOverSplash.innerHTML += '<h2>Not ready for the Justice League just yet.</h2><br/><h3>You should head over to the Danger Room for more training. Watch out for for Wolverine\'s claws.</h3>'; 
+		else if ((Quiz.correctAnswers >= 1) && (Quiz.correctAnswers < 3)) {
+			gameOverSplash.innerHTML += '<h2>You are not ready for the Justice League yet.</h2><br/><h3>Head over to the Danger Room for more training.<br/>Watch out for for Wolverine\'s claws.</h3>'; 
 		}
-		else if (correctAnswers <= 1) {
+		else if (Quiz.correctAnswers <= 1) {
 			gameOverSplash.innerHTML += '<h2>Sad face</h2><h3>Stop wasting time taking internet quizes and go to the comic book store before the Hulk sits on your head.</h3>';
 			gameOverSplash.innerHTML += '<img src="images/hulk.gif">';
 		}

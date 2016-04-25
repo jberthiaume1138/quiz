@@ -6,7 +6,17 @@ body {
 	font-family: 'Marvel', sans-serif;
 	/*max-width: 1000px;*/
 	background-color: black;
+
 }
+
+/*#skyline {
+	background-color: black;
+	background-image: url('../images/skyline-01.gif');
+	background-repeat: no-repeat;
+	background-position: 700px 0;
+	background-size: contain;
+	height: 200px;
+}*/
 
 header {
 	max-width: 50em;
