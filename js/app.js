@@ -2,9 +2,10 @@
 
 // TODO:
 // required answer or next is disabled
-// question explanations ... possibly some kind of modal overlay box
+// question explanations ... some kind of modal overlay box
 // running total of score + positioning
-// responsive
+// responsiveness
+
 var Quiz = {
 
 	questionIndex: '',

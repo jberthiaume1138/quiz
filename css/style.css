@@ -60,15 +60,21 @@ header h1 {
 	display: flex;
 	flex-flow: row wrap;
 	align-items: center;
-	flex: 1 0 auto;
 	justify-content: center;
 	padding: 1em;
 }
 
+@media only screen and (max-width: 515px) {
+ 	#choices  {
+		flex-flow: column;
+	}
+}
+
 .choice {
 	max-width: 50%;
-	width: 20em;
-	height: 4em;
+	flex: 1 1 auto;
+	/*width: 20em;*/
+	/*height: 4em;*/
 	border: 2px solid black;
 	margin: 1em;
 	padding: 0.5em;
@@ -146,25 +152,13 @@ header h1 {
 
 @media only screen and (max-width: 515px) {
  	#game-over img {
-		width: 350px;
+		width: 300px;
 	}
 }
 
 #game-over button {
 	width: 6em;
 }
-
-
-
-
-/* -------------------------------- */
-/*footer {
-	width: 50em;
-	margin: 0 auto;
-	padding: 1em;
-	background-color: white;
-	align-items: center;
-}*/
 
 #nav {
 	padding: 1em;
