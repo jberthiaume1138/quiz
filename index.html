@@ -16,44 +16,41 @@
 </header>
 
 <section id="main">
-	<div id="question-header-wrapper">
-		<h2 id="question-header">Question #1</h2>
-	</div>
-	<p id="question"></p>
+	<h2 id="question-header">Question #1</h2>
+	<div id="question"></div>
 	<div id="choices-wrapper">
-		<div id="choice-0" class="choice">
- 			<input class="radios" type="radio" id="0" name="choices" value="0">
- 			<p class="choice-text"></p>
- 		</div>
-		<div id="choice-1" class="choice">
-			<input class="radios" type="radio" id="1" name="choices" value="1">
-			<p class="choice-text"></p>
-		</div>
-		<div id="choice-2" class="choice">
-			<input class="radios" type="radio" id="2" name="choices" value="2">
-			<p class="choice-text"></p>
-		</div>
-		<div id="choice-3" class="choice"> 
-			<input class="radios" type="radio" id="3" name="choices" value="3">
-			<p class="choice-text"></p>
+		<div id="choices">
+			<div id="choice-0" class="choice">
+	 			<input class="radios" type="radio" id="0" name="choices" value="0">
+	 			<p class="choice-text"></p>
+	 		</div>
+			<div id="choice-1" class="choice">
+				<input class="radios" type="radio" id="1" name="choices" value="1">
+				<p class="choice-text"></p>
+			</div>
+			<div id="choice-2" class="choice">
+				<input class="radios" type="radio" id="2" name="choices" value="2">
+				<p class="choice-text"></p>
+			</div>
+			<div id="choice-3" class="choice"> 
+				<input class="radios" type="radio" id="3" name="choices" value="3">
+				<p class="choice-text"></p>
+			</div>
 		</div>
 	</div>
+	<div id="nav-wrapper">
+		<div id="nav">
+			<button id="btn-next">Next</button>	
+			<button id="btn-restart">Start Over</button>
+			<button id="btn-confirm">Confirm</button>
+			<h2 id="restart-warning">Warning, all progress will be lost.</h2>
+		</div>
+</section>
 	<!-- <div id="explanation">
 		<button id="continue">Next</button>	
 	</div> -->
-	<div id="nav-wrapper">
-		<button id="btn-next">Next</button>	
-		<button id="btn-restart">Start Over</button>
-		<button id="btn-confirm">Confirm</button>
-		<h2 id="restart-warning">Warning, all progress will be lost.</h2>
-	</div>
-</section>
-
 <section id="game-over">
 </section>
-
-<!-- <div id="skyline"></div> -->
-
 	<script src="http://code.jquery.com/jquery.min.js"></script>
 	<script src="js/questions.js" type="text/javascript"></script>
 	<script src="js/app.js" type="text/javascript"></script>
