@@ -55,11 +55,14 @@ header h1 {
 #question {
 	width: 100%;
 	margin: 0 1em;
-	padding: 1em;
+	padding: 0.50em;
 	border: 2px solid black;
-	font-size: 1.25em;
+	font-size: 1.60em;
 	font-weight: 700;
 	text-align: center;
+	background-image: url("../images/question-mark-background-01.jpg");
+	background-position: center;
+	background-size: cover;
 }
 
 #choices {
