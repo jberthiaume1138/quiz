@@ -1,0 +1,26 @@
+{
+  "name": "quiz",
+  "version": "1.0.0",
+  "description": "The Ultimate Comic Book Quiz",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jberthiaume1138/quiz.git"
+  },
+  "author": "JAB",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jberthiaume1138/quiz/issues"
+  },
+  "homepage": "https://github.com/jberthiaume1138/quiz#readme",
+  "dependencies": {
+    "express": "^4.14.1",
+    "history": "^4.5.1",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-router": "^3.0.2"
+  }
+}
