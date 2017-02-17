@@ -1,29 +1,23 @@
-// TODO:
-// required answer or next is disabled
-// question explanations ... some kind of modal overlay box
-// running total of score + positioning
-
-(function () {
-
 'use strict'
 
-var Quiz = {	//capital because it's being used as class.
+class Quiz = {
+	constructor() {
+		this.questionIndex = '';
+		this.correctAnswers = '';
+	}
 
-	questionIndex: '',		// is this the best way to create an empty object property?
-	correctAnswers: '',		// set them to zero if they are integers, '' if they strings
-
-	restartGame: function() {
+	restartGame() {
 		// resets running totals, moves to first question, populates fields
-		Quiz.questionIndex = 0;
-		Quiz.correctAnswers = 0;
+		this.questionIndex = 0;
+		this.correctAnswers = 0;
 
 		document.getElementById('main').style.display = 'flex';
 		document.getElementById('game-over').style.display = 'none';
 
-		Quiz.populateQuestion();
-	},
+		this.populateQuestion();
+	}
 
-	populateQuestion: function() {
+	populateQuestion() {
 		document.getElementById('choice-0').classList.remove('choice-selected');
 		document.getElementById('choice-1').classList.remove('choice-selected');
 		document.getElementById('choice-2').classList.remove('choice-selected');
@@ -31,26 +25,26 @@ var Quiz = {	//capital because it's being used as class.
 
 		// load the question from the array of objects in the file
 		document.getElementById('question').innerHTML = questions[Quiz.questionIndex].question;
-		
+
 		//load the current question # in the header
 		document.getElementById('question-header').innerHTML = 'Question #' + (Quiz.questionIndex + 1);
-		
+
 		// //then load the choices from the array of objects in the file for that question
 		var listOfParagraphs = document.getElementsByClassName('choice-text');
 		for (var i = 0; i < listOfParagraphs.length; i++) {
 			listOfParagraphs.item(i).innerHTML = '';
 			listOfParagraphs.item(i).innerHTML += questions[Quiz.questionIndex].choices[i];
 		}
-	},
+	}
 
-	evaluateAnswer: function(choice) {		// evaluate the choice against the quiz answer
+	evaluateAnswer(choice) {		// evaluate the choice against the quiz answer
 		if (choice == questions[Quiz.questionIndex].answer) {
 			// the answer is correct
 
 			console.log('Question ' + Quiz.questionIndex + ' correct ' + questions[Quiz.questionIndex].choices[choice]);
-			
+
 			Quiz.correctAnswers++; // increment the total number of correct answers
-			
+
 			console.log(Quiz.correctAnswers);
 
 
@@ -82,12 +76,12 @@ var Quiz = {	//capital because it's being used as class.
 			Quiz.questionIndex++;
 			Quiz.populateQuestion();
 		}
-	},
+	}
 
-	gameOver: function() {
+	gameOver() {
 		console.log(Quiz.correctAnswers);
 		document.getElementById('main').style.display = 'none';
-				
+
 		var gameOverSplash = document.getElementById('game-over');
 		gameOverSplash.innerHTML = ''; // clear
 
@@ -98,16 +92,16 @@ var Quiz = {	//capital because it's being used as class.
 			gameOverSplash.innerHTML += '<img src="images/stanlee.jpg">';
 		}
 		else if ((Quiz.correctAnswers >= 3) && (Quiz.correctAnswers <= 5)) {
-			gameOverSplash.innerHTML += '<h2>Well done shell-head!</h2><br/><h3>You are clearly an expert worthy of a spot in Charles Xavier\'s School.</h3>';
+			gameOverSplash.innerHTML += '<h2>Well done shell-head!</h2><br/><h3>You are clearly an expert worthy of a spot in Charles Xavier\'s School for the Gifted.</h3>';
 		}
 		else if ((Quiz.correctAnswers >= 1) && (Quiz.correctAnswers < 3)) {
-			gameOverSplash.innerHTML += '<h2>You are not ready for the Justice League yet.</h2><br/><h3>Head over to the Danger Room for more training.<br/>Watch out for for Wolverine\'s claws.</h3>'; 
+			gameOverSplash.innerHTML += '<h2>You are not ready for the Justice League yet.</h2><br/><h3>Head over to the Danger Room for more training.<br/>Watch out for for Wolverine\'s claws.</h3>';
 		}
 		else if (Quiz.correctAnswers <= 1) {
 			gameOverSplash.innerHTML += '<h2>Sad face</h2><h3>Stop wasting time taking internet quizes and go to the comic book store before the Hulk sits on your head.</h3>';
 			gameOverSplash.innerHTML += '<img src="images/hulk.gif">';
 		}
-	
+
 
 		gameOverSplash.innerHTML += '<button id="play-again">Play Again</button>';
 
@@ -117,7 +111,9 @@ var Quiz = {	//capital because it's being used as class.
 			Quiz.restartGame();
 		});
 	}
-};
+}
+
+const Quiz = new Quiz();
 
 document.onload = Quiz.restartGame();
 
@@ -161,7 +157,7 @@ document.getElementById('choice-1').addEventListener('click',function(event) {
 	this.classList.add('choice-selected');
 	document.getElementById('choice-2').classList.remove('choice-selected');
 	document.getElementById('choice-3').classList.remove('choice-selected');
-	
+
 	document.getElementById('1').checked = true;
 });
 
@@ -170,7 +166,7 @@ document.getElementById('choice-2').addEventListener('click',function(event) {
 	document.getElementById('choice-1').classList.remove('choice-selected');
 	this.classList.add('choice-selected');
 	document.getElementById('choice-3').classList.remove('choice-selected');
-	
+
 	document.getElementById('2').checked = true;
 });
 
@@ -179,13 +175,13 @@ document.getElementById('choice-3').addEventListener('click',function(event) {
 	document.getElementById('choice-1').classList.remove('choice-selected');
 	document.getElementById('choice-2').classList.remove('choice-selected');
 	this.classList.add('choice-selected');
-	
+
 	document.getElementById('3').checked = true;
 });
 
 document.getElementById('btn-next').addEventListener('click',function(event) {
 	// handler to get the selected choice and submit it for evaluation
 	Quiz.evaluateAnswer(document.querySelector('input[name=choices]:checked').value);
-});	
+});
 
-})();
+};
