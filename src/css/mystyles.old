@@ -1,0 +1,6 @@
+$myfonts: 'Marvel' , sans-serif;
+
+body {
+	font-family: $myfonts;
+	background-color: black;
+}
