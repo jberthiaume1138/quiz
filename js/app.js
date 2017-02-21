@@ -24,16 +24,16 @@ class Quiz {
 		document.getElementById('choice-3').classList.remove('choice-selected');
 
 		// load the question from the array of objects in the file
-		document.getElementById('question').innerHTML = questions[Quiz.questionIndex].question;
+		document.getElementById('question').innerHTML = questions[this.questionIndex].question;
 
 		//load the current question # in the header
-		document.getElementById('question-header').innerHTML = 'Question #' + (Quiz.questionIndex + 1);
+		document.getElementById('question-header').innerHTML = 'Question #' + (this.questionIndex + 1);
 
 		// //then load the choices from the array of objects in the file for that question
 		var listOfParagraphs = document.getElementsByClassName('choice-text');
 		for (var i = 0; i < listOfParagraphs.length; i++) {
 			listOfParagraphs.item(i).innerHTML = '';
-			listOfParagraphs.item(i).innerHTML += questions[Quiz.questionIndex].choices[i];
+			listOfParagraphs.item(i).innerHTML += questions[this.questionIndex].choices[i];
 		}
 	}
 
@@ -41,11 +41,11 @@ class Quiz {
 		if (choice == questions[Quiz.questionIndex].answer) {
 			// the answer is correct
 
-			console.log('Question ' + Quiz.questionIndex + ' correct ' + questions[Quiz.questionIndex].choices[choice]);
+			console.log('Question ' + this.questionIndex + ' correct ' + questions[this.questionIndex].choices[choice]);
 
-			Quiz.correctAnswers++; // increment the total number of correct answers
+			this.correctAnswers++; // increment the total number of correct answers
 
-			console.log(Quiz.correctAnswers);
+			console.log(this.correctAnswers);
 
 
 			//do some stuff
@@ -69,35 +69,35 @@ class Quiz {
 		}
 
 		// check location in question array, game over if that was the last question
-		if ((Quiz.questionIndex + 1) == questions.length) {
-			Quiz.gameOver();
+		if ((this.questionIndex + 1) == questions.length) {
+			this.gameOver();
 		}
 		else {		// otherwise, increment the counter and populate the HTML with the next question
-			Quiz.questionIndex++;
-			Quiz.populateQuestion();
+			this.questionIndex++;
+			this.populateQuestion();
 		}
 	}
 
 	gameOver() {
-		console.log(Quiz.correctAnswers);
+		console.log(this.correctAnswers);
 		document.getElementById('main').style.display = 'none';
 
 		var gameOverSplash = document.getElementById('game-over');
 		gameOverSplash.innerHTML = ''; // clear
 
-		var output = 'You got ' + Quiz.correctAnswers + ' out of ' + questions.length + ' correct';
+		var output = 'You got ' + this.correctAnswers + ' out of ' + questions.length + ' correct';
 
-		if (Quiz.correctAnswers == questions.length) {
+		if (this.correctAnswers == questions.length) {
 			gameOverSplash.innerHTML += '<h2>Excelsior!</h2><h3>You are a champion! Worthy of joining the X-men, the Avengers or the Justice League. Just remember, with great power, comes great responsibility.';
 			gameOverSplash.innerHTML += '<img src="images/stanlee.jpg">';
 		}
-		else if ((Quiz.correctAnswers >= 3) && (Quiz.correctAnswers <= 5)) {
+		else if ((this.correctAnswers >= 3) && (this.correctAnswers <= 5)) {
 			gameOverSplash.innerHTML += '<h2>Well done shell-head!</h2><br/><h3>You are clearly an expert worthy of a spot in Charles Xavier\'s School for the Gifted.</h3>';
 		}
-		else if ((Quiz.correctAnswers >= 1) && (Quiz.correctAnswers < 3)) {
+		else if ((this.correctAnswers >= 1) && (this.correctAnswers < 3)) {
 			gameOverSplash.innerHTML += '<h2>You are not ready for the Justice League yet.</h2><br/><h3>Head over to the Danger Room for more training.<br/>Watch out for for Wolverine\'s claws.</h3>';
 		}
-		else if (Quiz.correctAnswers <= 1) {
+		else if (this.correctAnswers <= 1) {
 			gameOverSplash.innerHTML += '<h2>Sad face</h2><h3>Stop wasting time taking internet quizes and go to the comic book store before the Hulk sits on your head.</h3>';
 			gameOverSplash.innerHTML += '<img src="images/hulk.gif">';
 		}
@@ -108,7 +108,7 @@ class Quiz {
 		gameOverSplash.style.display = 'flex';
 
 		document.getElementById('play-again').addEventListener('click',function(event) {
-			Quiz.restartGame();
+			this.restartGame();
 		});
 	}
 }
