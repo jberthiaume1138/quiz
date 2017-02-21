@@ -1,6 +1,6 @@
 'use strict'
 
-class Quiz = {
+class Quiz {
 	constructor() {
 		this.questionIndex = '';
 		this.correctAnswers = '';
