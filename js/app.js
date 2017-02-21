@@ -183,5 +183,3 @@ document.getElementById('btn-next').addEventListener('click',function(event) {
 	// handler to get the selected choice and submit it for evaluation
 	ComicBookQuiz.evaluateAnswer(document.querySelector('input[name=choices]:checked').value);
 });
-
-};
