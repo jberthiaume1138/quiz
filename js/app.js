@@ -113,9 +113,9 @@ class Quiz {
 	}
 }
 
-const Quiz = new Quiz();
+const ComicBookQuiz = new Quiz();
 
-document.onload = Quiz.restartGame();
+document.onload = ComicBookQuiz.restartGame();
 
 document.getElementById('btn-restart').addEventListener('click',function(event) {
 	document.getElementById('btn-next').style.display = 'none';
@@ -131,7 +131,7 @@ document.getElementById('btn-confirm').addEventListener('click',function(event) 
 	document.getElementById('btn-restart').style.display = 'block';
 	document.getElementById('btn-cancel').style.display = 'none';
 	document.getElementById('restart-warning').style.display = 'none';
-	Quiz.restartGame();
+	ComicBookQuiz.restartGame();
 });
 
 document.getElementById('btn-cancel').addEventListener('click',function(event) {
@@ -140,7 +140,7 @@ document.getElementById('btn-cancel').addEventListener('click',function(event) {
 	document.getElementById('btn-restart').style.display = 'block';
 	document.getElementById('btn-cancel').style.display = 'none';
 	document.getElementById('restart-warning').style.display = 'none';
-	Quiz.restartGame();
+	ComicBookQuiz.restartGame();
 });
 
 document.getElementById('choice-0').addEventListener('click',function(event) {
@@ -181,7 +181,7 @@ document.getElementById('choice-3').addEventListener('click',function(event) {
 
 document.getElementById('btn-next').addEventListener('click',function(event) {
 	// handler to get the selected choice and submit it for evaluation
-	Quiz.evaluateAnswer(document.querySelector('input[name=choices]:checked').value);
+	ComicBookQuiz.evaluateAnswer(document.querySelector('input[name=choices]:checked').value);
 });
 
 };
