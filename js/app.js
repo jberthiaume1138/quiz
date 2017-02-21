@@ -38,7 +38,7 @@ class Quiz {
 	}
 
 	evaluateAnswer(choice) {		// evaluate the choice against the quiz answer
-		if (choice == questions[Quiz.questionIndex].answer) {
+		if (choice == questions[this.questionIndex].answer) {
 			// the answer is correct
 
 			console.log('Question ' + this.questionIndex + ' correct ' + questions[this.questionIndex].choices[choice]);
@@ -47,20 +47,6 @@ class Quiz {
 
 			console.log(this.correctAnswers);
 
-
-			//do some stuff
-
-			// var score = '<p id="score">Score: ' + correctAnswers + ' out of ' + (Quiz.questionIndex + 1) + ' correct</p>';
-			// document.getElementById('question-header-wrapper').innerHTML += score;
-
-			// // change a bunch of output to show correct choice
-			// var output = '<h2>Correct!</h2><p>' + questions[Quiz.questionIndex].explanation + '</p>';
-
-			// document.getElementById('explanation').innerHTML += output;
-			// //document.getElementById('explanation');
-
-			// document.getElementById('main').style.display = 'none';
-			// document.getElementById('explanation').style.display = 'block';
 		}
 		else {
 			// the answer is wrong
