@@ -1,6 +1,6 @@
 import React from 'react';
 
-// import style from './style/Quiz.scss';
+import style from './style/Quiz.scss';
 
 export default class Quiz extends React.Component {
 	render() {
